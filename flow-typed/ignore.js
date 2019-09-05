@@ -6,3 +6,6 @@ declare module 'styled-components' {
 declare module 'recompose' {
   declare module.exports: any
 }
+declare module 'fontfaceobserver' {
+  declare module.exports: any
+}

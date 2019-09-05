@@ -1,6 +1,9 @@
 // @flow
 
 export default {
+  zIndices: {
+    navbar: 100,
+  },
   colors: {
     themes: {
       common: {

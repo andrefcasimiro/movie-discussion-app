@@ -1,14 +1,19 @@
 // @flow
 import React from 'react'
 import appConfiguration from 'global/app'
-import { Container } from './styled'
+import { Title } from 'componentsStyled/Typography'
+import { Container, Spacer, Blurrer } from './styled'
 
 const Header = () => {
 
   return (
-    <Container>
-      {appConfiguration.applicationName}
-    </Container>
+    <React.Fragment>
+          <Blurrer />
+      <Container>
+        <Title>{appConfiguration.applicationName}</Title>
+      </Container>
+      <Spacer />
+    </React.Fragment>
   )
 }
 

@@ -27,7 +27,7 @@ export const GlobalStyle = createGlobalStyle`
 
     &.fontLoaded {
       &, button, input, option, select, textarea {
-        /*font-family: 'geomanist', 'Arial', sans-serif;*/
+        font-family: 'defaultFont', 'Arial', sans-serif;
       }
     }
 

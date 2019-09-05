@@ -2,7 +2,8 @@
 import React, { Component } from 'react'
 import Header from 'components/Header'
 import Table from 'components/Table'
-import Tile from 'components/Tile'
+import Movie from 'components/Movie'
+import { Margin } from 'componentsStyled/Layout'
 import { database } from 'global/firebase'
 import GlobalStyle from 'global/global-styles'
 
@@ -49,7 +50,10 @@ class App<P: *> extends Component <P, S> {
         <Header />
         {loading
           ? <p>Loading...</p>
-          : <Table data={data} selector='movies' component={Tile} />
+          : <Margin>
+              <Table data={data} selector='movies' component={Movie} title='Awarded Movies' />
+              <Table data={data} selector='movies' component={Movie} title='Adventure Movies' />
+            </Margin>
         }
       </React.Fragment>
     )
