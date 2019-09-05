@@ -8,7 +8,7 @@ export const BoxSection = styled(Row)`
   background: rgba(255, 255, 255, 0.1);
   color: ${theme.colors.themes.common.white};
   /* Dimensions */
-  height: 6rem;
+  min-height: 6rem;
 
   /* Spacing */
   padding: 1rem;
@@ -26,7 +26,7 @@ export const RoundSection = styled(Row)`
   background: rgba(255, 255, 255, 0.1);
   color: ${theme.colors.themes.common.white};
   /* Dimensions */
-  height: 8rem;
+  min-height: 8rem;
 
   /* Spacing */
   padding: 1rem;
