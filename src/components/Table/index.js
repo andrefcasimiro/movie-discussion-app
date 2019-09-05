@@ -10,9 +10,13 @@ type Props = {
   selector: any,
   component: TypeComponent<*, *>,
   title: string,
+  transform?: Function,
 }
 
-const Table = ({ data, selector, component: Component, title }: Props) => {
+const Table = ({ data, selector, component: Component, title, transform }: Props) => {
+  const table = transform
+    ? transform(data[selector])
+    : data[selector]
 
   return (
     <Margin>
@@ -22,7 +26,7 @@ const Table = ({ data, selector, component: Component, title }: Props) => {
         </TitleSection>
       }
       <CombinedSection>
-        {data[selector].map((entry, index) =>
+        {table.map((entry, index) =>
           <Component data={entry} key={entry.id || index} type={selector} />
         )}
       </CombinedSection>
