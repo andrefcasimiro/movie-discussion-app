@@ -13,3 +13,15 @@ declare module 'fontfaceobserver' {
 declare module 'react-icons/fa' {
   declare module.exports: any
 }
+
+declare module 'formik' {
+  declare module.exports: any
+}
+
+declare module 'yup' {
+  declare module.exports: any
+}
+
+declare module 'ramda' {
+  declare module.exports: any
+}

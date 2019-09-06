@@ -2,7 +2,6 @@
 import styled from 'styled-components'
 import theme from 'global/theme'
 import { BoxSection } from 'componentsStyled/Shared'
-import { Button } from 'componentsStyled/Buttons'
 
 export const Container = styled(BoxSection)`
   align-items: center;

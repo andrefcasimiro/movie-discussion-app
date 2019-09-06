@@ -5,7 +5,7 @@ import {
   Text,
 } from 'componentsStyled/Typography'
 import { Wrapper, Content } from './styled'
-import type { Movie as TypeMovie } from 'data/movie/types'
+import type { Movie as TypeMovie } from 'data/movies/types'
 
 type Props = {
   data: TypeMovie,

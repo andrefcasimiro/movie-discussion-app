@@ -1,22 +1,38 @@
 // @flow
 import React from 'react'
-import Modal from '../_Modal'
+import type { HOC } from 'recompose'
+import withForm from 'hocs/withForm'
+import TextInput from 'components/Inputs/TextInput'
+import type { Form } from 'data/forms/types'
 
 type Props = {
   close: Function,
   title: string,
+  form: Form[],
 }
 
-/**
- * A generic form wrapped in a modal
- * @param {string} title - Title of the form that will be rendered in the modal header
- * @param {Function} close - comes from the high-order component withOpen, and is used to close the modal
- */
-const AddForm = ({ title, close }: Props) => {
-
+const AddForm = ({ form }) => {
   return (
-    <Modal title={title} close={close}>
-      <h2>Hello</h2>
-    </Modal>
+    <React.Fragment>
+      {form.map((field, index) =>
+        <TextInput key={index} name={field.name} label={field.label} type={field.type} />
+      )}
+    </React.Fragment>
   )
 }
+
+const schema = {
+}
+
+const enhancer: HOC<*, Props> = withForm({
+  schema,
+  onSubmit: props => values => {
+
+    console.log('values: ', values)
+
+    return Promise.resolve()
+  },
+  //onSuccess: props => props.close(),
+})
+
+export default enhancer(AddForm)

@@ -7,7 +7,7 @@ import { Margin } from 'componentsStyled/Layout'
 import {
   filterByProp,
   filterByValue,
-} from 'data/movie/helpers'
+} from 'data/movies/helpers'
 
 type S = {
   data: Array<*>,

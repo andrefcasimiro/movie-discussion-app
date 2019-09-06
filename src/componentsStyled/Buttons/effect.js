@@ -1,6 +1,5 @@
 // @flow
 import { css } from "styled-components"
-import theme from "global/theme"
 
 export default css`
   &::before {

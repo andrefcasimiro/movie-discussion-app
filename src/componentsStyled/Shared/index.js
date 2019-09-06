@@ -68,44 +68,13 @@ export const GlassWrapper = styled(Button)`
   opacity: 1;
   background: none;
 
-
-  &::before {
-    content: "";
-    display: block;
-    position: absolute;
-    background: rgba(255, 255, 255, 0.5);
-    width: 6rem;
-    height: 100%;
-    left: 0;
-    top: 0;
-    opacity: 0.5;
-    filter: blur(3rem);
-  }
-
-  &::after {
-    content: "";
-    display: block;
-    position: absolute;
-    background: rgba(255, 255, 255, 0.2);
-    width: 25%;
-    height: 100%;
-    left: 3rem;
-    top: 0;
-    opacity: 0;
-    filter: blur(5.5rem);
-  }
-
   &:hover {
     &::before {
-      transform: translateX(1rem);
-      opacity: 0.6;
-      transition: 1s;
     }
 
     &::after {
-      transform: translateX(0);
-      opacity: 1;
-      transition: 0.7s;
+      display: none;
+
     }
   }
 `

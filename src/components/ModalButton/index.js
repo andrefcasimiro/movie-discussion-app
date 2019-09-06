@@ -32,7 +32,7 @@ const ModalButton = ({
   <React.Fragment>
   {isOpen &&
     <Modal title={modalTitle} close={toggleOpen}>
-      <ModalComponent {...modalProps}/>
+      <ModalComponent {...modalProps} close={toggleOpen} />
     </Modal>
   }
   <Button onClick={toggleOpen}>

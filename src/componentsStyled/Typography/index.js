@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import theme from 'global/theme'
 
 export const Title = styled.h2`
   display: flex;

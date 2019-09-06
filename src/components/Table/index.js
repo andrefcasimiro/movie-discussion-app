@@ -29,8 +29,8 @@ const Table = ({ data, selector, component: Component, title, transform }: Props
       }
       <BoxSection>
         {table.map((entry, index) =>
-          <ComponentWrapper>
-            <Component data={entry} key={entry.id || index} type={selector} />
+          <ComponentWrapper key={entry.id || index}>
+            <Component data={entry} type={selector} />
           </ComponentWrapper>
         )}
       </BoxSection>

@@ -1,5 +1,4 @@
 // @flow
-
 export default {
   zIndices: {
     navbar: 100,

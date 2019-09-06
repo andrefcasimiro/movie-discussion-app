@@ -69,6 +69,7 @@ export const ModalHeader = styled.div`
 `
 
 export const ModalTitle = styled.h2`
+  font-weight: normal;
 `
 
 export const ModalClose = styled.div`

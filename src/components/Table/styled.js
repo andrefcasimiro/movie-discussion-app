@@ -9,6 +9,8 @@ export const ComponentWrapper = styled(Button)`
   margin-right: 1rem;
   opacity: 0.3;
 
+  border: 0.1rem solid rgba(255, 255, 255, 0.1);
+
   * {
     margin-right: 0;
   }
@@ -21,7 +23,6 @@ export const ComponentWrapper = styled(Button)`
     width: 6rem;
     filter: blur(20px);
   }
-
 
   &::hover {
     opacity: 1;

@@ -2,13 +2,13 @@
 import React, { Component } from 'react'
 import { Button } from 'componentsStyled/Buttons'
 import ModalButton from 'components/ModalButton'
+import AddForm from 'modals/AddForm'
 import { StyledBoxSection as BoxSection } from './styled'
 import {
   FaEdit as AddMovieIcon,
 } from 'react-icons/fa'
 
-type S = {
-}
+type S = {}
 
 class UserTools<P: *> extends Component <P, S> {
   constructor(props: P) {
@@ -18,15 +18,15 @@ class UserTools<P: *> extends Component <P, S> {
     }
   }
 
-
   render() {
 
     return (
       <React.Fragment>
         <BoxSection>
           <ModalButton
-            modalComponent={() => <div>Hello</div>}
-            modalProps={{data: 'hello'}}
+            modalComponent={AddForm}
+            modalProps={{ data: 'hello' }}
+            modalTitle="Add a movie"
           >
             <AddMovieIcon /> Add movie
           </ModalButton>
