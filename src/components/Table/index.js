@@ -3,7 +3,9 @@ import React from 'react'
 import type { Component as TypeComponent } from 'recompose'
 import { Margin } from 'componentsStyled/Layout'
 import { Subtitle } from 'componentsStyled/Typography'
-import { CombinedSection, TitleSection } from 'componentsStyled/Shared'
+import { BoxSection, TitleSection } from 'componentsStyled/Shared'
+import { Button } from 'componentsStyled/Buttons'
+import { ComponentWrapper } from './styled'
 
 type Props = {
   data: Array<*>,
@@ -22,14 +24,16 @@ const Table = ({ data, selector, component: Component, title, transform }: Props
     <Margin>
       {title &&
         <TitleSection>
-          <Subtitle>{title}</Subtitle>
+          <Button><Subtitle>{title}</Subtitle></Button>
         </TitleSection>
       }
-      <CombinedSection>
+      <BoxSection>
         {table.map((entry, index) =>
-          <Component data={entry} key={entry.id || index} type={selector} />
+          <ComponentWrapper>
+            <Component data={entry} key={entry.id || index} type={selector} />
+          </ComponentWrapper>
         )}
-      </CombinedSection>
+      </BoxSection>
     </Margin>
   )
 }

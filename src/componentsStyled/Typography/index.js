@@ -1,8 +1,9 @@
 import styled from 'styled-components'
+import theme from 'global/theme'
 
 export const Title = styled.h2`
   display: flex;
-  font-weight: bold;
+  font-weight: normal;
   font-size: 2.4rem;
   margin: 0;
   padding: 0.1rem;
@@ -10,7 +11,8 @@ export const Title = styled.h2`
 `
 export const Subtitle = styled(Title)`
   font-weight: normal;
-  font-size: 2rem;
+  font-size: 1.8rem;
+  text-shadow: 0 0.2rem 0.2rem rgba(0, 0, 0, 0.2);
 `
 
 export const Field = styled.p`
@@ -19,6 +21,7 @@ export const Field = styled.p`
   font-weight: bold;
   margin: 0;
   padding: 0.1rem;
+  text-shadow: 0.1rem 0.1rem 0.2rem rgba(0, 0, 0, 0.5);
 `
 
 export const Text = styled.p`
@@ -27,4 +30,5 @@ export const Text = styled.p`
   font-weight: normal;
   margin: 0;
   padding: 0.1rem;
+  text-shadow: 0.1rem 0.2rem 0.2rem rgba(0, 0, 0, 0.2);
 `

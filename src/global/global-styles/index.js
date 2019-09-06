@@ -40,6 +40,8 @@ export const GlobalStyle = createGlobalStyle`
   button {
     background: none;
     padding: 0;
+    outline: none;
+    border: none;
   }
 
   ul {

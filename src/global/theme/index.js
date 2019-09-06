@@ -3,12 +3,14 @@
 export default {
   zIndices: {
     navbar: 100,
+    modal: 999,
   },
   colors: {
     themes: {
       common: {
         white: '#FFF',
         black: '#000',
+        primary: '#363A55',
       },
       st_cristobal: { // https://www.color-hex.com/color-palette/82391
         brown: '#c19160',

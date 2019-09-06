@@ -1,5 +1,6 @@
 // @flow
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
+import { Button } from 'componentsStyled/Buttons'
 import theme from 'global/theme'
 import { Row } from '../Layout'
 
@@ -51,25 +52,60 @@ export const TitleSection = styled(BoxSection)`
   flex-direction: row;
   flex-wrap: wrap;
   width: 100%;
-  border-top-right-radius: 0.5rem;
-  border-top-left-radius: 0.5rem;
   height: 5rem;
   min-height: auto;
-  background: ${theme.colors.themes.cakebear.orange};
+  background: none;
   color: ${theme.colors.themes.common.white};
-  box-shadow: 0 0.5rem 0.5rem 0 rgba(0, 0, 0, 0.2);
+  border-bottom: 0.2rem solid rgba(255, 255, 255, 0.3);
+  box-shadow: none;
 `
 
-export const CombinedSection = styled(RoundSection)`
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
+export const GlassWrapper = styled(Button)`
   margin: 0;
-`
+  height: 6rem;
+  border-top: none;
+  border-bottom: none;
+  opacity: 1;
+  background: none;
 
-export const Image = styled.img`
-  display: flex;
-  flex-grow: 1;
-  width: 75%;
-  margin: 1rem;
-  border-radius: 0.1rem;
+
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    background: rgba(255, 255, 255, 0.5);
+    width: 6rem;
+    height: 100%;
+    left: 0;
+    top: 0;
+    opacity: 0.5;
+    filter: blur(3rem);
+  }
+
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    background: rgba(255, 255, 255, 0.2);
+    width: 25%;
+    height: 100%;
+    left: 3rem;
+    top: 0;
+    opacity: 0;
+    filter: blur(5.5rem);
+  }
+
+  &:hover {
+    &::before {
+      transform: translateX(1rem);
+      opacity: 0.6;
+      transition: 1s;
+    }
+
+    &::after {
+      transform: translateX(0);
+      opacity: 1;
+      transition: 0.7s;
+    }
+  }
 `

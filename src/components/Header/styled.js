@@ -2,6 +2,7 @@
 import styled from 'styled-components'
 import theme from 'global/theme'
 import { BoxSection } from 'componentsStyled/Shared'
+import { Button } from 'componentsStyled/Buttons'
 
 export const Container = styled(BoxSection)`
   align-items: center;
@@ -12,6 +13,8 @@ export const Container = styled(BoxSection)`
   z-index: ${theme.zIndices.navbar};
   background: rgba(255, 255, 255, 0.1);
   border-bottom: 0.1rem solid rgba(255, 255, 255, 0.1);
+
+  height: 6rem;
 `
 
 export const Blurrer = styled(Container)`
@@ -22,4 +25,5 @@ export const Blurrer = styled(Container)`
 // Offset to push content below the header
 export const Spacer = styled.div`
   height: 6rem;
+  background: none;
 `

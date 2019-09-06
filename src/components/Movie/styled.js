@@ -1,11 +1,11 @@
 // @flow
 import styled from 'styled-components'
-import { RoundSection } from 'componentsStyled/Shared'
+import { BoxSection } from 'componentsStyled/Shared'
 import {
   Column,
 } from 'componentsStyled/Layout'
 
-export const Wrapper = styled(RoundSection)`
+export const Wrapper = styled(BoxSection)`
   width: 16rem;
   height: 22rem;
 
@@ -20,14 +20,8 @@ export const Wrapper = styled(RoundSection)`
 
   text-align: center;
   cursor: pointer;
-  opacity: 0.3;
   transition: 0.3s all;
-
-  &:hover {
-    transition: 0.3s all;
-    background-position: 50% 5%;
-    opacity: 1;
-  }
+  box-shadow: none;
 `
 
 export const Content = styled(Column)`
