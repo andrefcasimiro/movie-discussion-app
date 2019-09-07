@@ -6,6 +6,7 @@ import { pick } from 'ramda'
 import * as yup from 'yup'
 import { withFormik } from 'formik'
 
+// eslint-disable-next-line no-unused-vars
 type Validator<T> = Object
 type ExtractValidatorType = <T>(validator: Validator<T>) => T
 

@@ -8,12 +8,13 @@ import {
   StyledInput,
 } from './styled'
 
-const TextInput = ({ name, label, value, onChange, error }) => (
+const TextInput = ({ name, label, value, onChange, onBlur, error }) => (
   <InputWrap>
     <Label>{label}</Label>
     <StyledInput
       name={name}
       onChange={onChange}
+      onBlur={onBlur}
       value={value}
     />
     {error && typeof error === 'string' && <Error>{error}</Error>}

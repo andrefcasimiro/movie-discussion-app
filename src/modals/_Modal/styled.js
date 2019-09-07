@@ -1,7 +1,6 @@
 // @flow
 import styled, { keyframes } from 'styled-components'
 import theme from 'global/theme'
-import effect from 'componentsStyled/Buttons/effect'
 
 const modalFadeDuration = 250
 

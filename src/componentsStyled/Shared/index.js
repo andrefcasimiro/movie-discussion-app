@@ -1,5 +1,5 @@
 // @flow
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import { Button } from 'componentsStyled/Buttons'
 import theme from 'global/theme'
 import { Row } from '../Layout'

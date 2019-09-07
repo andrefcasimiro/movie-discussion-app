@@ -38,7 +38,6 @@ function withField<Outter>(
       render={fieldProps => {
         const showError = path(["form", "status", "submitted"], fieldProps) || fieldProps.form.touched[fieldProps.field.name] === true
         const error = fieldProps.form.errors[fieldProps.field.name]
-        console.log('fieldProps: ', fieldProps.form.touched)
 
         return (
           <ComposedComponent
