@@ -12,7 +12,6 @@ type Props = {
 }
 
 const Movie = ({ data }: Props) => {
-
   return (
     <React.Fragment>
       <Wrapper background={data.posters && data.posters[0]}>

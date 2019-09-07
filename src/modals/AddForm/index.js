@@ -2,6 +2,7 @@
 import React from 'react'
 import * as yup from 'yup'
 import { compose, type HOC, withProps } from 'recompose'
+import withPost from 'hocs/withPost'
 import withForm from 'hocs/withForm'
 import TextInput from 'components/Inputs/TextInput'
 import { Submit } from 'componentsStyled/Buttons'
@@ -57,13 +58,15 @@ const enhancer: HOC<*, Props> = compose(
       customSchema,
     }
   }),
+  withPost('movies'),
   withForm({
     schema,
     onSubmit: props => values => {
-
+      
       console.log('values: ', values)
+      console.log('props: ', props)
 
-      return Promise.resolve()
+      return props.submit(values)
     },
     //onSuccess: props => props.close(),
   }),

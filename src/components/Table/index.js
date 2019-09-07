@@ -16,9 +16,11 @@ type Props = {
 }
 
 const Table = ({ data, selector, component: Component, title, transform }: Props) => {
+  const _data = typeof data === 'object' ? Object.values(data[selector]) : data[selector]
+
   const table = transform
-    ? transform(data[selector])
-    : data[selector]
+    ? transform(_data)
+    : _data
 
   return (
     <Margin>
@@ -29,7 +31,7 @@ const Table = ({ data, selector, component: Component, title, transform }: Props
       }
       <BoxSection>
         {table.map((entry, index) =>
-          <ComponentWrapper key={entry.id || index}>
+          <ComponentWrapper key={index}>
             <Component data={entry} type={selector} />
           </ComponentWrapper>
         )}
