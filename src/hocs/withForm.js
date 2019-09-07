@@ -1,13 +1,21 @@
 // @flow
 import React from 'react'
 import styled from 'styled-components'
-import type { HOC } from 'recompose'
+import { compose, withProps, type HOC } from 'recompose'
 import { pick } from 'ramda'
 import * as yup from 'yup'
 import { withFormik } from 'formik'
 
 type Validator<T> = Object
 type ExtractValidatorType = <T>(validator: Validator<T>) => T
+
+type Added<Schema> = {
+  submitted: boolean,
+  isSubmitting: boolean,
+  error?: string,
+  resetForm: Function,
+  values: $ObjMap<Schema, ExtractValidatorType>,
+}
 
 type Configuration<Props, Response, Schema> = {
   schema: Schema,
@@ -16,14 +24,6 @@ type Configuration<Props, Response, Schema> = {
   ) => Promise<Response>,
   onSuccess?: ({ ...$Exact<Props>, ...$Exact<Added<Schema>> }) => Response => mixed,
   onError?: ({ ...$Exact<Props>, ...$Exact<Added<Schema>> }) => string => mixed,
-}
-
-type Added<Schema> = {
-  submitted: boolean,
-  isSubmitting: boolean,
-  error?: string,
-  resetForm: Function,
-  values: $ObjMap<Schema, ExtractValidatorType>,
 }
 
 const Form = styled.form`
@@ -35,18 +35,37 @@ function withForm<Outter, Response, Schema: {}>(
 ): HOC<{ ...$Exact<Outter>, ...$Exact<Added<Schema>> }, Outter> {
   const { schema, onSubmit, onSuccess, onError } = configuration
 
-  return ComposedComponent =>
+  return ComposedComponent => compose(
+    withProps(props => {
+      if (props.customSchema) {
+        let customSchema = {}
+
+          props.customSchema.forEach(field => {
+            customSchema = {
+              ...customSchema,
+              ...field,
+            }
+          })
+
+        return {
+          schema: customSchema,
+        }
+      }
+    }),
     withFormik({
       mapPropsToValues: props => {
         if (props.formData) {
-          return pick(
-            Object.keys(schema)
-          )(props.formData)
+          const _schema = props.schema || schema
+          return pick(Object.keys(_schema))(props.formData)
         }
 
         return {}
       },
-      validationSchema: yup.object().shape(schema),
+      validationSchema: props => {
+        const _schema = props.schema || schema
+        return yup.object().shape(_schema)
+      },
+      validateOnChange: true,
       handleSubmit: (values, other) => {
         other.setStatus({ ...other.status, error: null })
 
@@ -83,7 +102,7 @@ function withForm<Outter, Response, Schema: {}>(
             }
           })
       },
-    })(props => (
+    }))(props => (
       <Form onSubmit={event => {
         props.setStatus({
           ...props.status,

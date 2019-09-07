@@ -1,5 +1,6 @@
 // @flow
 import React from 'react'
+import { path } from 'ramda'
 import type { Component } from 'recompose'
 import { Field } from 'formik'
 
@@ -35,7 +36,9 @@ function withField<Outter>(
     <Field
       {...props}
       render={fieldProps => {
+        const showError = path(["form", "status", "submitted"], fieldProps) || fieldProps.form.touched[fieldProps.field.name] === true
         const error = fieldProps.form.errors[fieldProps.field.name]
+        console.log('fieldProps: ', fieldProps.form.touched)
 
         return (
           <ComposedComponent
@@ -43,7 +46,7 @@ function withField<Outter>(
             {...fieldProps.field}
             onChange={handleChange({ ...props, ...fieldProps })}
             onBlur={handleBlur({ ...props, ...fieldProps })}
-            error={error}
+            error={showError && error}
           />
         )
       }}

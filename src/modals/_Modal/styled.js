@@ -42,14 +42,14 @@ export const ModalContainer = styled.div`
   border: .1rem solid rgba(255, 255, 255, 0.2);
   box-shadow: 2px 2px 15px 10px rgba(0, 0, 0, 0.2);
   opacity: 0.95;
-  padding-bottom: 4rem;
+  padding-bottom: 2rem;
   margin-bottom: 3rem;
   overflow: auto;
 
   width: calc(100% - 120px);
   min-height: calc(100% - 300px);
   max-width: 550px;
-  max-height: calc(100% - 20px);
+  max-height: calc(100% - 80px);
 `
 
 export const ModalHeader = styled.div`

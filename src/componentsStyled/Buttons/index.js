@@ -38,3 +38,9 @@ export const Button = styled.button`
     margin-right: 0.5rem;
   }
 `
+
+export const Submit = styled(Button)`
+  margin-top: 2rem;
+  width: 100%;
+  min-height: 5rem;
+`

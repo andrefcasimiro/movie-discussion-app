@@ -3,6 +3,9 @@ import React, { Component } from 'react'
 import { Button } from 'componentsStyled/Buttons'
 import ModalButton from 'components/ModalButton'
 import AddForm from 'modals/AddForm'
+import {
+  addMovie,
+} from 'data/movies/forms'
 import { StyledBoxSection as BoxSection } from './styled'
 import {
   FaEdit as AddMovieIcon,
@@ -25,7 +28,7 @@ class UserTools<P: *> extends Component <P, S> {
         <BoxSection>
           <ModalButton
             modalComponent={AddForm}
-            modalProps={{ data: 'hello' }}
+            modalProps={{ form: addMovie, }}
             modalTitle="Add a movie"
           >
             <AddMovieIcon /> Add movie

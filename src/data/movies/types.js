@@ -24,7 +24,6 @@ export type Writer = {
 export type Movie = {
   title: string,
   // Generic
-  release_date: string,
   year: number,
   countries: string[],
   // Meta
