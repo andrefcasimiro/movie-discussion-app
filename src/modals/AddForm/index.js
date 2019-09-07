@@ -14,24 +14,43 @@ type Props = {
   form: Form[],
 }
 
-const AddForm = ({ form, title }) => {
+const AddForm = ({ form, title, ...props }) => {
   return (
     <React.Fragment>
       {form.map((field, index) =>
-        <TextInput key={index} name={field.name} label={field.label} type={field.type} />
+        <TextInput key={index} name={field.name} label={field.label} type={field.type} {...field} />
       )}
 
-      <Submit type='submit'>Add new movie</Submit>
+      <Submit type='submit'>Submit</Submit>
     </React.Fragment>
   )
 }
 
-const schema = {
+const arrangeValues = (values: Object, form: Array<Form>) => {
+  let input = values
+
+  form.forEach((entry) => {
+    let baseValue = values[entry.name]
+
+    if (entry.dataType === 'array') {
+      baseValue = !!baseValue ? baseValue.split(', ') : []
+      baseValue = baseValue.map((b: string) => !b.startsWith('http') ? b.toLowerCase() : b)
+    }
+
+    input = {
+      ...input,
+      [entry.name]: baseValue,
+    }
+  })
+
+  return input
 }
 
 const enhancer: HOC<*, Props> = compose(
   withProps(props => {
-    if (!props.form) { return }
+    if (!props.form) {
+      return
+    }
 
     // Build dynamic schema
     const customSchema = props.form.reduce((acc, field) => {
@@ -60,15 +79,12 @@ const enhancer: HOC<*, Props> = compose(
   }),
   withPost('movies'),
   withForm({
-    schema,
     onSubmit: props => values => {
-      
-      console.log('values: ', values)
-      console.log('props: ', props)
+      const input = arrangeValues(values, props.form)
 
-      return props.submit(values)
+      return props.submit(input)
     },
-    //onSuccess: props => props.close(),
+    onSuccess: props => props.close(),
   }),
 )
 

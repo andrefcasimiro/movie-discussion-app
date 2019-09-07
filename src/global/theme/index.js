@@ -38,6 +38,7 @@ export default {
         grey: '#5a696f',
         blueMarine: '#5c8e90',
         red: '#db3232',
+        redLight: '#f63939',
       },
     }
   },

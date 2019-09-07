@@ -19,7 +19,7 @@ type Added<Schema> = {
 }
 
 type Configuration<Props, Response, Schema> = {
-  schema: Schema,
+  schema?: Schema,
   onSubmit: ({ ...$Exact<Props>, ...$Exact<Added<Schema>> }) => (
     $ObjMap<Schema, ExtractValidatorType>,
   ) => Promise<Response>,

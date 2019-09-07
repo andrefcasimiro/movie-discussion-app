@@ -15,8 +15,16 @@ export const Label = styled.p`
 `
 
 export const Error = styled.p`
-  font-size: 1.3rem;
-  color: ${theme.colors.themes.hippocampus.red};
+  font-size: 1.4rem;
+  color: ${theme.colors.themes.hippocampus.redLight};
+  margin: 0.6rem 0;
+`
+
+export const Description = styled(Error)`
+  display: inline;
+  margin-left: 0.5rem;
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.3);
 `
 
 export const StyledInput = styled.input`
@@ -26,8 +34,5 @@ export const StyledInput = styled.input`
   width: 100%;
   min-height: 3.5rem;
   padding: .5rem;
-
-  &::focus {
-    border: .2rem solid rgba(255, 255, 255, 0.2);
-  }
+  border: none;
 `
